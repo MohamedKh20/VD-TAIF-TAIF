@@ -1,95 +1,169 @@
 <!DOCTYPE html>
 <html lang="ar">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>VD-TAIF Splash</title>
-<style>
-  * { margin:0; padding:0; box-sizing:border-box; }
-  body, html {
-    height:100%; width:100%;
-    overflow:hidden;
-    background:#ffffff; /* كحلي */
-    font-family:"Outfit", sans-serif;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    position:relative;
-    color:#fff;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VD-TAIF Splash</title>
 
-  /* النقطة */
-  .circle {
-    position:absolute;
-    top:-50px;
-    left:50%;
-    transform:translateX(-50%);
-    width:20px;
-    height:20px;
-    border-radius:50%;
-    background:#011428;
-    animation: drop 0.7s ease forwards, expand 1s ease forwards 0.7s;
-    z-index:1;
-  }
-  @keyframes drop {
-    to { top:50%; transform:translate(-50%, -50%); }
-  }
-  @keyframes expand {
-    from { transform:translate(-50%, -50%) scale(1); }
-    to { transform:translate(-50%, -50%) scale(100); }
-  }
+  <!-- خط El Messiri -->
+  <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@400;600&display=swap" rel="stylesheet" />
 
-  /* الكلمة */
-  h1 {
-    position:relative;
-    font-size:clamp(40px, 12vw, 100px);
-    font-weight:700;
-    letter-spacing:0.15em;
-    text-transform:uppercase;
-    opacity:0;
-    color:white; /* اللون العادي بدون لمعان */
-    text-align:center;
-    z-index:2;
-    animation: fadeIn 0.8s ease forwards, pulse 2s ease-in-out infinite;
-    animation-delay:1.8s, 2.6s; 
-  }
-  @keyframes fadeIn {
-    to { opacity:1; }
-  }
-  @keyframes pulse {
-    0%,100% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-  }
+  <style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body, html {
+      height:100%; width:100%;
+      overflow:hidden;
+      background:#ffffff;
+      font-family:"Outfit", sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      position:relative;
+      color:#fff;
+    }
 
-  /* النص الإضافي */
-  .credit {
-    position:absolute;
-    bottom:-50px;
-    font-size:clamp(14px, 4vw, 26px);
-    color:#ddd;
-    opacity:0;
-    z-index:2;
-    animation: slideUp 1s ease forwards, fadeGlow 3s ease-in-out infinite;
-    animation-delay:2.5s, 4s;
-  }
-  @keyframes slideUp {
-    from { bottom:-50px; opacity:0; }
-    to { bottom:80px; opacity:1; }
-  }
-  @keyframes fadeGlow {
-    0%,100% { color:#ddd; }
-    50% { color:#fff; }
-  }
-</style>
+    /* النقطة */
+    .circle {
+      position:absolute;
+      top:-50px;
+      left:50%;
+      transform:translateX(-50%);
+      width:20px;
+      height:20px;
+      border-radius:50%;
+      background:#011428;
+      animation: drop 0.7s ease forwards, expand 1s ease forwards 0.7s;
+      z-index:1;
+    }
+    @keyframes drop {
+      to { top:50%; transform:translate(-50%, -50%); }
+    }
+    @keyframes expand {
+      from { transform:translate(-50%, -50%) scale(1); }
+      to { transform:translate(-50%, -50%) scale(100); }
+    }
+
+    /* الحاوية */
+    .title-wrapper {
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      animation: liftUp 1s ease forwards;
+      animation-delay:6.5s;
+    }
+
+    @keyframes liftUp {
+      to {
+        transform:translateY(-30px);
+      }
+    }
+
+    /* الكلمة الرئيسية */
+    .animated-text {
+      display:flex;
+      gap:0.03em;
+    }
+
+    .animated-text span {
+      display:inline-block;
+      opacity:0;
+      transform:translateY(30px);
+      animation: letterIn 0.6s ease forwards, shimmer 2s ease-in-out infinite;
+      font-size:clamp(36px, 10vw, 80px);
+      font-weight:700;
+      letter-spacing:0.03em;
+      text-transform:uppercase;
+      color:white;
+    }
+
+    .animated-text span:nth-child(1) { animation-delay: 1.8s, 3.5s; }
+    .animated-text span:nth-child(2) { animation-delay: 2s, 3.7s; }
+    .animated-text span:nth-child(3) { animation-delay: 2.2s, 3.9s; }
+    .animated-text span:nth-child(4) { animation-delay: 2.4s, 4.1s; }
+    .animated-text span:nth-child(5) { animation-delay: 2.6s, 4.3s; }
+    .animated-text span:nth-child(6) { animation-delay: 2.8s, 4.5s; }
+    .animated-text span:nth-child(7) { animation-delay: 3s, 4.7s; }
+
+    @keyframes letterIn {
+      to {
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    @keyframes shimmer {
+      0%,100% { text-shadow: 0 0 0px #fff; }
+      50% { text-shadow: 0 0 10px #fff; }
+    }
+
+    /* فرع الطائف */
+    .branch {
+      font-size:clamp(20px, 5vw, 40px);
+      font-family:'El Messiri', sans-serif;
+      color:#eee;
+      opacity:0;
+      animation: fadeInBranch 1s ease forwards;
+      animation-delay:5.5s;
+      margin-top:0.5em;
+    }
+
+    @keyframes fadeInBranch {
+      to { opacity:1; }
+    }
+
+    /* التوقيع */
+    .credit {
+      position:absolute;
+      bottom:30px;
+      font-size:clamp(10px, 2vw, 14px);
+      font-family:'El Messiri', sans-serif;
+      color:#ccc;
+      opacity:0;
+      z-index:2;
+      animation: slideUp 1s ease forwards, fadeGlow 3s ease-in-out infinite;
+      animation-delay:7.2s, 8.5s;
+      text-align:center;
+    }
+
+    @keyframes slideUp {
+      from { bottom:-50px; opacity:0; }
+      to { bottom:30px; opacity:1; }
+    }
+
+    @keyframes fadeGlow {
+      0%,100% { color:#ccc; }
+      50% { color:#fff; }
+    }
+
+    @media (max-width: 600px) {
+      .animated-text span {
+        font-size:clamp(28px, 8vw, 60px);
+      }
+      .branch {
+        font-size:clamp(18px, 4vw, 32px);
+      }
+      .credit {
+        font-size:clamp(10px, 3vw, 13px);
+      }
+    }
+  </style>
 </head>
 <body>
   <div class="circle"></div>
-  <h1>VD-TAIF</h1>
+  <div class="title-wrapper">
+    <h1 class="animated-text">
+      <span>V</span><span>D</span><span>-</span><span>T</span><span>A</span><span>I</span><span>F</span>
+    </h1>
+    <div class="branch">فرع الطائف</div>
+  </div>
   <div class="credit">تصميم وتنفيذ م- محمد خالد</div>
   <script>
   setTimeout(function() {
     window.location.href = "user-login.html"; // غيّر هذا إلى رابط صفحة تسجيل الدخول الفعلي
-  }, 5000); // 3000 ملي ثانية = 3 ثواني
+  }, 11000); // 11000 ملي ثانية = 11000 ثواني
 </script>
 </body>
 </html>
