@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VD-TAIF Splash</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body, html {
+    height:100%; width:100%;
+    overflow:hidden;
+    background:#ffffff; /* كحلي */
+    font-family:"Outfit", sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    color:#fff;
+  }
+
+  /* النقطة */
+  .circle {
+    position:absolute;
+    top:-50px;
+    left:50%;
+    transform:translateX(-50%);
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:#011428;
+    animation: drop 0.7s ease forwards, expand 1s ease forwards 0.7s;
+    z-index:1;
+  }
+  @keyframes drop {
+    to { top:50%; transform:translate(-50%, -50%); }
+  }
+  @keyframes expand {
+    from { transform:translate(-50%, -50%) scale(1); }
+    to { transform:translate(-50%, -50%) scale(100); }
+  }
+
+  /* الكلمة */
+  h1 {
+    position:relative;
+    font-size:clamp(40px, 12vw, 100px);
+    font-weight:700;
+    letter-spacing:0.15em;
+    text-transform:uppercase;
+    opacity:0;
+    color:white; /* اللون العادي بدون لمعان */
+    text-align:center;
+    z-index:2;
+    animation: fadeIn 0.8s ease forwards, pulse 2s ease-in-out infinite;
+    animation-delay:1.8s, 2.6s; 
+  }
+  @keyframes fadeIn {
+    to { opacity:1; }
+  }
+  @keyframes pulse {
+    0%,100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+
+  /* النص الإضافي */
+  .credit {
+    position:absolute;
+    bottom:-50px;
+    font-size:clamp(14px, 4vw, 26px);
+    color:#ddd;
+    opacity:0;
+    z-index:2;
+    animation: slideUp 1s ease forwards, fadeGlow 3s ease-in-out infinite;
+    animation-delay:2.5s, 4s;
+  }
+  @keyframes slideUp {
+    from { bottom:-50px; opacity:0; }
+    to { bottom:80px; opacity:1; }
+  }
+  @keyframes fadeGlow {
+    0%,100% { color:#ddd; }
+    50% { color:#fff; }
+  }
+</style>
+</head>
+<body>
+  <div class="circle"></div>
+  <h1>VD-TAIF</h1>
+  <div class="credit">تصميم وتنفيذ م- محمد خالد</div>
+  <script>
+  setTimeout(function() {
+    window.location.href = "user-login.html"; // غيّر هذا إلى رابط صفحة تسجيل الدخول الفعلي
+  }, 5000); // 3000 ملي ثانية = 3 ثواني
+</script>
+</body>
+</html>

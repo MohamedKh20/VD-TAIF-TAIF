@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>إفادات المشاريع</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background-color: #ffffff;
+      color: #000000;
+      padding: 20px 30px;
+      text-align: right;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .navbar h1 {
+      margin: 0;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .navbar p {
+      margin: 5px 0 0;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .main-content {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .cards {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      width: 100%;
+      max-width: 500px;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card h3 {
+      margin: 0;
+      font-size: 20px;
+      color: #007bff;
+    }
+
+    .back-btn {
+      margin: 20px 30px;
+      align-self: flex-end;
+      padding: 10px 18px;
+      background-color: #6c757d;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .back-btn:hover {
+      background-color: #5a6268;
+    }
+
+    @media (max-width: 600px) {
+      .card h3 {
+        font-size: 18px;
+      }
+
+      .navbar h1 {
+        font-size: 20px;
+      }
+
+      .navbar p {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <h1>إفادات المشاريع</h1>
+    <p>اختر نوع الإفادة المطلوبة</p>
+  </div>
+
+  <!-- Cards -->
+  <div class="main-content">
+    <div class="cards">
+      <div class="card" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSe7zZ6iy4D2Buloo1QX0AgBfB8Nzz9PiRM5GM6zHsoJ6sRXDw/viewform', '_blank')">
+        <h3>💧 إفادة مشروع شركة المياه الوطنية</h3>
+      </div>
+      <div class="card" onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdQle2OXPzY0hYsVquyhOkQNQLcrfKW24aAiIxSlCA0g6H_Iw/viewform', '_blank')">
+        <h3>🛠️ إفادة مشروع الانكسارات</h3>
+      </div>
+      <p>تم التنفيذ بواسطة م/محمد خالد جميع الحقوق محفوظة</p>
+    </div>
+  </div>
+
+  <!-- Back Button -->
+  <button class="back-btn" onclick="window.location.href='user-dashboard.html'">رجوع</button>
+
+</body>
+</html>

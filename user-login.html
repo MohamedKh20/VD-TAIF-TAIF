@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>تسجيل دخول المستخدم</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #00004F;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .login-container {
+    background: rgba(255, 255, 255, 0.08); /* شفافية ناعمة */
+    backdrop-filter: blur(12px); /* تأثير ضبابي */
+    -webkit-backdrop-filter: blur(12px);
+    padding: 40px 30px;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+    width: 100%;
+    max-width: 360px;
+    text-align: center;
+    animation: fadeIn 1.2s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  h2 {
+    margin-bottom: 25px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 22px;
+  }
+
+  input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    outline: none;
+  }
+
+  input::placeholder {
+    color: #ddd;
+  }
+
+  .btn-group {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+  }
+
+  button {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+
+  .user-btn {
+    background-color: #00aaff;
+    color: white;
+  }
+
+  .user-btn:hover {
+    background-color: #0088cc;
+  }
+
+  .admin-btn {
+    background-color: #555;
+    color: white;
+  }
+
+  .admin-btn:hover {
+    background-color: #333;
+  }
+
+  p {
+    font-size: 13px;
+    color: #ccc;
+    margin-top: 25px;
+  }
+
+  @media (max-width: 400px) {
+    .btn-group {
+      flex-direction: column;
+    }
+  }
+</style>
+
+</head>
+<body>
+  <div class="login-container">
+    <h2>تسجيل دخول المستخدم</h2>
+    <input type="text" id="username" placeholder="اسم المستخدم">
+    <input type="password" id="password" placeholder="كلمة المرور">
+
+    <div class="btn-group">
+      <button class="user-btn" onclick="loginUser()">دخول المستخدم</button>
+      <a href="admin-login.html" style="text-decoration: none;">
+        <button class="admin-btn">دخول الأدمن</button>
+      </a>
+    </div>
+    <p>تم التنفيذ بواسطة م/محمد خالد جميع الحقوق محفوظة</p>
+  </div>
+
+  <script>
+    function loginUser() {
+      const username = document.getElementById("username").value.trim().toLowerCase();
+      const password = document.getElementById("password").value;
+
+      const users = [
+        { user: "ahmed", pass: "123456" },
+        { user: "mohamed", pass: "m12345" },
+        { user: "ibrahem", pass: "i12345" },
+        { user: "mohamed2", pass: "m23456" },
+        { user: "abdalla", pass: "a12345" },
+        { user: "gamal", pass: "g12345" },
+        { user: "mohamedg", pass: "mg3456" },
+        { user: "salem", pass: "s23456" },
+        { user: "", pass: "" }
+      ];
+
+      const match = users.find(u => u.user === username && u.pass === password);
+
+      if (match) {
+        localStorage.setItem("user", match.user);
+        window.location.href = "user-dashboard.html"; // تأكد إن اسم الملف فعلاً dashboard.html
+      } else {
+        alert("بيانات الدخول غير صحيحة");
+      }
+    }
+  </script>
+</body>
+</html>
